@@ -1,0 +1,114 @@
+Running the Crew
++-------------------------- Crew Execution Started ---------------------------+
+|                                                                             |
+|  Crew Execution Started                                                     |
+|  Name: crew                                                                 |
+|  ID: a745030a-8890-4c0a-98ae-228f22018343                                   |
+|  Tool Args:                                                                 |
+|                                                                             |
+|                                                                             |
++-----------------------------------------------------------------------------+
+
+Traceback (most recent call last):
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\.venv\Lib\site-packages\httpx\_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '404 Not Found' for url 'https://api.portkey.ai/v1:generateContent'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\src\portkey_test\main.py", line 26, in run
+    PortkeyTest().crew().kickoff(inputs=inputs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\.venv\Lib\site-packages\crewai\crew.py", line 659, in kickoff
+    result = self._run_sequential_process()
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\.venv\Lib\site-packages\crewai\crew.py", line 768, in _run_sequential_process
+    return self._execute_tasks(self.tasks)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\.venv\Lib\site-packages\crewai\crew.py", line 871, in _execute_tasks
+    task_output = task.execute_sync(
+        agent=agent_to_use,
+        context=context,
+        tools=cast(List[BaseTool], tools_for_task),
+    )
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\.venv\Lib\site-packages\crewai\task.py", line 354, in execute_sync
+    return self._execute_core(agent, context, tools)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\.venv\Lib\site-packages\crewai\task.py", line 502, in _execute_core
+    raise e  # Re-raise the exception after emitting the event
+    ^^^^^^^
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\.venv\Lib\site-packages\crewai\task.py", line 418, in _execute_core
+    result = agent.execute_task(
+        task=self,
+        context=context,
+        tools=tools,
+    )
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\.venv\Lib\site-packages\crewai\agent.py", line 435, in execute_task
+    raise e
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\.venv\Lib\site-packages\crewai\agent.py", line 411, in execute_task
+    result = self._execute_without_timeout(task_prompt, task)
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\.venv\Lib\site-packages\crewai\agent.py", line 507, in _execute_without_timeout
+    return self.agent_executor.invoke(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        {
+        ^
+    ...<4 lines>...
+        }
+        ^
+    )["output"]
+    ^
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\.venv\Lib\site-packages\crewai\agents\crew_agent_executor.py", line 125, in invoke
+    raise e
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\.venv\Lib\site-packages\crewai\agents\crew_agent_executor.py", line 114, in invoke
+    formatted_answer = self._invoke_loop()
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\.venv\Lib\site-packages\crewai\agents\crew_agent_executor.py", line 210, in _invoke_loop
+    raise e
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\.venv\Lib\site-packages\crewai\agents\crew_agent_executor.py", line 157, in _invoke_loop
+    answer = get_llm_response(
+        llm=self.llm,
+    ...<2 lines>...
+        printer=self._printer,
+    )
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\.venv\Lib\site-packages\crewai\utilities\agent_utils.py", line 160, in get_llm_response
+    raise e
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\.venv\Lib\site-packages\crewai\utilities\agent_utils.py", line 151, in get_llm_response
+    answer = llm.call(
+        messages,
+        callbacks=callbacks,
+    )
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\.venv\Lib\site-packages\crewai\llm.py", line 956, in call
+    return self._handle_non_streaming_response(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        params, callbacks, available_functions
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\.venv\Scripts\run_crew.exe\__main__.py", line 10, in <module>
+    sys.exit(run())
+             ~~~^^
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\src\portkey_test\main.py", line 28, in run
+    raise Exception(f"An error occurred while running the crew: {e}")
+[EventBus Error] Handler 'on_agent_logs_started' failed for event 'AgentLogsStartedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_llm_call_started' failed for event 'LLMCallStartedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+
+
+
+
+[EventBus Error] Handler 'on_llm_call_failed' failed for event 'LLMCallFailedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+
+[91m An unknown error occurred. Please check the details below.[00m
+
+[EventBus Error] Handler 'on_task_failed' failed for event 'TaskFailedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_crew_failed' failed for event 'CrewKickoffFailedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+An error occurred while running the crew: Command '['uv', 'run', 'run_crew']' returned non-zero exit status 1.

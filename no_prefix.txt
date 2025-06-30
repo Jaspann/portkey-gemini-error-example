@@ -1,0 +1,131 @@
+Running the Crew
++-------------------------- Crew Execution Started ---------------------------+
+|                                                                             |
+|  Crew Execution Started                                                     |
+|  Name: crew                                                                 |
+|  ID: 619877ea-447f-47d9-840e-cd64347e1af9                                   |
+|  Tool Args:                                                                 |
+|                                                                             |
+|                                                                             |
++-----------------------------------------------------------------------------+
+
+10:51:53 - LiteLLM:ERROR: vertex_llm_base.py:397 - Failed to load vertex credentials. Check to see if credentials containing partial/invalid information. Error: Your default credentials were not found. To set up Application Default Credentials, see https://cloud.google.com/docs/authentication/external/set-up-adc for more information.
+Traceback (most recent call last):
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\.venv\Lib\site-packages\litellm\llms\vertex_ai\vertex_llm_base.py", line 393, in get_access_token
+    _credentials, credential_project_id = self.load_auth(
+                                          ~~~~~~~~~~~~~~^
+        credentials=credentials, project_id=project_id
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\.venv\Lib\site-packages\litellm\llms\vertex_ai\vertex_llm_base.py", line 95, in load_auth
+    creds, creds_project_id = self._credentials_from_default_auth(
+                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        scopes=["https://www.googleapis.com/auth/cloud-platform"]
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\.venv\Lib\site-packages\litellm\llms\vertex_ai\vertex_llm_base.py", line 136, in _credentials_from_default_auth
+    return google_auth.default(scopes=scopes)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\.venv\Lib\site-packages\google\auth\_default.py", line 685, in default
+    raise exceptions.DefaultCredentialsError(_CLOUD_SDK_MISSING_CREDENTIALS)
+google.auth.exceptions.DefaultCredentialsError: Your default credentials were not found. To set up Application Default Credentials, see https://cloud.google.com/docs/authentication/external/set-up-adc for more information.
+Traceback (most recent call last):
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\.venv\Lib\site-packages\google\auth\_default.py", line 685, in default
+    raise exceptions.DefaultCredentialsError(_CLOUD_SDK_MISSING_CREDENTIALS)
+google.auth.exceptions.DefaultCredentialsError: Your default credentials were not found. To set up Application Default Credentials, see https://cloud.google.com/docs/authentication/external/set-up-adc for more information.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\src\portkey_test\main.py", line 26, in run
+    PortkeyTest().crew().kickoff(inputs=inputs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\.venv\Lib\site-packages\crewai\crew.py", line 659, in kickoff
+    result = self._run_sequential_process()
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\.venv\Lib\site-packages\crewai\crew.py", line 768, in _run_sequential_process
+    return self._execute_tasks(self.tasks)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\.venv\Lib\site-packages\crewai\crew.py", line 871, in _execute_tasks
+    task_output = task.execute_sync(
+        agent=agent_to_use,
+        context=context,
+        tools=cast(List[BaseTool], tools_for_task),
+    )
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\.venv\Lib\site-packages\crewai\task.py", line 354, in execute_sync
+    return self._execute_core(agent, context, tools)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\.venv\Lib\site-packages\crewai\task.py", line 502, in _execute_core
+    raise e  # Re-raise the exception after emitting the event
+    ^^^^^^^
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\.venv\Lib\site-packages\crewai\task.py", line 418, in _execute_core
+    result = agent.execute_task(
+        task=self,
+        context=context,
+        tools=tools,
+    )
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\.venv\Lib\site-packages\crewai\agent.py", line 435, in execute_task
+    raise e
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\.venv\Lib\site-packages\crewai\agent.py", line 411, in execute_task
+    result = self._execute_without_timeout(task_prompt, task)
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\.venv\Lib\site-packages\crewai\agent.py", line 507, in _execute_without_timeout
+    return self.agent_executor.invoke(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        {
+        ^
+    ...<4 lines>...
+        }
+        ^
+    )["output"]
+    ^
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\.venv\Lib\site-packages\crewai\agents\crew_agent_executor.py", line 125, in invoke
+    raise e
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\.venv\Lib\site-packages\crewai\agents\crew_agent_executor.py", line 114, in invoke
+    formatted_answer = self._invoke_loop()
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\.venv\Lib\site-packages\crewai\agents\crew_agent_executor.py", line 210, in _invoke_loop
+    raise e
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\.venv\Lib\site-packages\crewai\agents\crew_agent_executor.py", line 157, in _invoke_loop
+    answer = get_llm_response(
+        llm=self.llm,
+    ...<2 lines>...
+        printer=self._printer,
+    )
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\.venv\Lib\site-packages\crewai\utilities\agent_utils.py", line 160, in get_llm_response
+    raise e
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\.venv\Lib\site-packages\crewai\utilities\agent_utils.py", line 151, in get_llm_response
+    answer = llm.call(
+        messages,
+        callbacks=callbacks,
+    )
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\.venv\Lib\site-packages\crewai\llm.py", line 956, in call
+    return self._handle_non_streaming_response(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        params, callbacks, available_functions
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\.venv\Scripts\run_crew.exe\__main__.py", line 10, in <module>
+    sys.exit(run())
+             ~~~^^
+  File "C:\Users\wipar\Coding\Fluent_Source\portkey_test\src\portkey_test\main.py", line 28, in run
+    raise Exception(f"An error occurred while running the crew: {e}")
+[EventBus Error] Handler 'on_agent_logs_started' failed for event 'AgentLogsStartedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_llm_call_started' failed for event 'LLMCallStartedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+
+
+
+
+[EventBus Error] Handler 'on_llm_call_failed' failed for event 'LLMCallFailedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+
+[91m An unknown error occurred. Please check the details below.[00m
+
+[EventBus Error] Handler 'on_task_failed' failed for event 'TaskFailedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_crew_failed' failed for event 'CrewKickoffFailedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+An error occurred while running the crew: Command '['uv', 'run', 'run_crew']' returned non-zero exit status 1.
