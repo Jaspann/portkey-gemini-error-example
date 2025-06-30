@@ -4,9 +4,9 @@ I made this to record the errors I was getting when using the Portkey Gemini API
 
 ## Setup
 
-Windows 11
-Python 3.12
-uv package manager
+- Windows 11
+- Python 3.12
+- uv package manager
 
 ## Modifications
 
